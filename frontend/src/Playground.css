@@ -1,0 +1,180 @@
+.playground-root {
+  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+.playground-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--border-color);
+  padding: 0.5rem 2rem;
+  background: var(--bg-secondary);
+  box-sizing: border-box;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -1.5px;
+  display: flex;
+  gap: 0.2em;
+}
+
+.controls {
+  display: flex;
+  gap: 0.7em;
+}
+.run-btn,
+.reset-btn {
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.45em 1.3em;
+  margin-right: 0;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s, box-shadow 0.18s;
+}
+.run-btn {
+  background: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 2px 6px rgba(247, 223, 30, 0.06);
+}
+.run-btn:active, .run-btn:disabled {
+  opacity: 0.71;
+}
+.reset-btn {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--accent);
+  box-shadow: none;
+}
+.reset-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+.split-view {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 64px);
+  width: 100vw;
+}
+
+.editor-section, .output-section {
+  flex: 1 1 0;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
+.editor-section {
+  border-right: 1.5px solid var(--border-color);
+}
+.editor-label, .output-label {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  color: var(--primary);
+}
+.editor-area {
+  position: relative;
+  height: 100%;
+  flex: 1 1 auto;
+  background: var(--editor-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(40,44,52,0.035);
+  border: 1.5px solid var(--border-color);
+}
+.editor-highlight {
+  position: absolute;
+  pointer-events: none;
+  color: transparent;
+  background: none;
+  white-space: pre-wrap;
+  word-break: break-all;
+  width: 100%;
+  height: 100%;
+  font: inherit;
+  padding: 1.2em 1.2em 1.2em 1.2em;
+  z-index: 1;
+  tab-size: 2;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+/* Syntax highlighting styles (approximate) */
+.token-comment { color: #8b949e; }
+.token-string { color: #50a14f; }
+.token-keyword { color: var(--accent); font-weight: 600; }
+/* + more for extensibility */
+
+.editor-textarea {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 1.2em;
+  font-size: 1.08rem;
+  color: var(--primary);
+  font-family: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  line-height: 1.5;
+  resize: none;
+  caret-color: var(--accent);
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.output-section {
+  background: var(--editor-bg);
+}
+.output-area {
+  flex: 1 1 auto;
+  min-height: 200px;
+  margin-top: 5px;
+  border-radius: 8px;
+  background: #1111fa06;
+  padding: 1em;
+  border: 1.5px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(40,44,52,0.025);
+  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
+}
+.output-result {
+  color: #333;
+  font-size: 1.0rem;
+}
+
+.output-error {
+  color: #ca3434;
+  background: rgba(247,87,87,.10);
+  font-size: 1.0rem;
+  padding: 0.3em;
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  .split-view {
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+  }
+  .editor-section, .output-section {
+    min-height: 220px;
+    padding: 1.1rem 0.5rem;
+  }
+  .editor-section {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}

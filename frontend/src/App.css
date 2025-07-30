@@ -1,13 +1,32 @@
-/* CSS Variables for Theme Management */
+/* CSS Variables for Theme Management and Playground Theme */
 :root {
   /* Light theme colors */
-  --bg-primary: #ffffff;
+  --bg-primary: #fff;
   --bg-secondary: #f8f9fa;
   --text-primary: #282c34;
   --text-secondary: #61dafb;
   --border-color: #e9ecef;
-  --button-bg: #007bff;
+  --button-bg: #f7df1e;
+  --button-text: #282c34;
+  --accent: #f7df1e;
+  --primary: #282c34;
+  --secondary: #61dafb;
+  --editor-bg: #f9f9f9;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
   --button-text: #ffffff;
+  --editor-bg: #20232a;
+  --accent: #f7df1e;
+  --primary: #282c34;
+  --secondary: #61dafb;
 }
 
 [data-theme="dark"] {
